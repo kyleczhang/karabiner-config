@@ -46,13 +46,9 @@ if ! curl -fsSL "$REPO_RAW/$SRC_NAME" -o "$TMP_FILE"; then
   exit 1
 fi
 
-# Sanity check: file is non-empty and valid JSON.
+# Sanity check: file is non-empty.
 if [ ! -s "$TMP_FILE" ]; then
   err "Downloaded file is empty."
-  exit 1
-fi
-if command -v python3 >/dev/null 2>&1 && ! python3 -m json.tool "$TMP_FILE" >/dev/null 2>&1; then
-  err "Downloaded file is not valid JSON."
   exit 1
 fi
 
