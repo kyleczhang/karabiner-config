@@ -5,7 +5,7 @@
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kyleczhang/karabiner-config/main/install.sh)"
 #
 # It downloads karabiner.json into Karabiner-Elements' config directory,
-# backing up any existing config first.
+# replacing any existing config.
 
 set -euo pipefail
 
@@ -50,13 +50,6 @@ fi
 if [ ! -s "$TMP_FILE" ]; then
   err "Downloaded file is empty."
   exit 1
-fi
-
-# --- back up any existing config ------------------------------------------
-if [ -e "$CONFIG_FILE" ]; then
-  BACKUP_FILE="$CONFIG_FILE.backup.$(date +%Y%m%d%H%M%S)"
-  cp "$CONFIG_FILE" "$BACKUP_FILE"
-  info "Backed up existing config to $BACKUP_FILE"
 fi
 
 mv "$TMP_FILE" "$CONFIG_FILE"
