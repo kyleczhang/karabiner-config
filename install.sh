@@ -57,11 +57,5 @@ trap - EXIT
 
 ok "Installed config to $CONFIG_FILE"
 
-# --- next steps -----------------------------------------------------------
 echo
 bold "Done!"
-echo "  • Karabiner-Elements reloads the config automatically on change."
-echo "  • If it isn't installed yet, get it with:"
-echo "      brew install --cask karabiner-elements"
-echo "  • Open Karabiner-Elements and grant it Input Monitoring + Accessibility"
-echo "    permissions in System Settings > Privacy & Security."
