@@ -51,7 +51,7 @@ if [ ! -s "$TMP_FILE" ]; then
   err "Downloaded file is empty."
   exit 1
 fi
-if command -v plutil >/dev/null 2>&1 && ! plutil -lint "$TMP_FILE" >/dev/null 2>&1; then
+if command -v python3 >/dev/null 2>&1 && ! python3 -m json.tool "$TMP_FILE" >/dev/null 2>&1; then
   err "Downloaded file is not valid JSON."
   exit 1
 fi
